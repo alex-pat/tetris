@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3a6ff13c_9ab052f6",
+        "filename": "src/by/alexpat/tetris/InfoBox.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1007751
+      },
+      "writtenOn": "2016-03-14T09:14:07Z",
+      "side": 1,
+      "message": "it works",
+      "range": {
+        "startLine": 33,
+        "startChar": 20,
+        "endLine": 33,
+        "endChar": 36
+      },
+      "revId": "7946bff336cc4693abd5a612622862c8c2d2968e",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    }
+  ]
+}
