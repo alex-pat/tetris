@@ -2,6 +2,7 @@ package by.alexpat.tetris;
 
 import javafx.event.EventHandler;
 import javafx.geometry.HorizontalDirection;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
@@ -21,10 +22,12 @@ public class Tetris extends HBox {
         final GameController gameController = new GameController();
 
         StackPane stackPane = new StackPane();
-        stackPane.getChildren().add(gameController.getBoard());
 
-        stackPane.getChildren().add(gameController.getNotificationOverlay());
+        stackPane.getChildren().add( gameController.getBoard() );
+
+        stackPane.getChildren().add( gameController.getNotificationOverlay() );
         stackPane.setAlignment(Pos.TOP_CENTER);
+        setMargin(stackPane, new Insets(40, 40, 40, 40));
 
         getChildren().add(stackPane);
 
@@ -34,11 +37,16 @@ public class Tetris extends HBox {
         HBox.setHgrow(infoBox, Priority.ALWAYS);
         getChildren().add(infoBox);
 
+        String image = getClass().getResource( "/res/background.png" ).toExternalForm();
+//        setStyle( "-fx-background-image: url('" + image + "');"
+//                + "-fx-background-position: top;"
+//                + "-fx-background-repeat: no-repeat;");
+
         setOnKeyPressed(new EventHandler<KeyEvent>() {
             @Override
             public void handle(KeyEvent keyEvent) {
                 if (keyEvent.getCode() == KeyCode.P) {
-                    gameController.pausedProperty().set(!gameController.pausedProperty().get());
+                    gameController.pausedProperty().set( !gameController.pausedProperty().get() );
                     keyEvent.consume();
                 }
             }

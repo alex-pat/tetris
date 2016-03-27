@@ -1,0 +1,37 @@
+#tetris {
+    -fx-background-image: url('/res/background.png');
+    -fx-text-fill: white;
+}
+
+.label, .check-box {
+    -fx-text-fill: white;
+}
+
+.label.score {
+    -fx-font-size: 4em;
+}
+
+.button {
+    -fx-background-color: transparent;
+    -fx-font-size: 14px;
+    -fx-text-fill: white;
+}
+
+.-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+}
+
+.check-box.mute {
+    -fx-background-image: url('unmute.png');
+}
+
+.check-box.mute:selected {
+    -fx-background-image: url('mute.png');
+}
+
+.check-box.mute *.box {
+    -fx-opacity: 0;
+}

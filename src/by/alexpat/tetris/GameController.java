@@ -13,18 +13,20 @@ public class GameController {
 
     private final ScoreManager scoreManager;
 
+    private final SoundManager soundManager;
+
     private final BooleanProperty paused = new SimpleBooleanProperty();
 
     public GameController() {
         this.board = new Board();
-        //this.soundManager = new SoundManager(this);
+        this.soundManager = new SoundManager(this);
         this.scoreManager = new ScoreManager(this);
 
         notificationOverlay = new NotificationOverlay(this);
         paused.addListener(new ChangeListener<Boolean>() {
             @Override
-            public void changed(ObservableValue<? extends Boolean> observableValue, Boolean aBoolean, Boolean aBoolean2) {
-                if (aBoolean2) {
+            public void changed(ObservableValue<? extends Boolean> observableValue, Boolean oldValue, Boolean newValue) {
+                if (newValue) {
                     pause();
                 } else {
                     play();
@@ -38,19 +40,18 @@ public class GameController {
     }
 
     public void start() {
-        //soundManager.playFromStart();
+        soundManager.playFromStart();
         board.start();
         scoreManager.scoreProperty().set(0);
         paused.set(false);
     }
 
     private void pause() {
-        //soundManager.pause();
         board.pause();
     }
 
     public void stop() {
-        //soundManager.stop();
+        soundManager.stop();
         board.clear();
         scoreManager.scoreProperty().set(0);
         paused.set(false);
@@ -60,13 +61,13 @@ public class GameController {
         return board;
     }
 
-//    public SoundManager getSoundManager() {
-//        return soundManager;
-//    }
+    public SoundManager getSoundManager() {
+        return soundManager;
+    }
 
     public void play() {
         paused.set(false);
-        //soundManager.play();
+        soundManager.play();
         board.play();
     }
 

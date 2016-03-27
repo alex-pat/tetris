@@ -26,20 +26,19 @@ public class InfoBox extends VBox {
         setPadding(new Insets(20, 20, 20, 20));
         setSpacing(10);
 
-        setId("infoBox");
-
         CheckBox checkBox = new CheckBox();
         checkBox.getStyleClass().add("mute");
         checkBox.setMinSize(64, 64);
         checkBox.setMaxSize(64, 64);
-        checkBox.selectedProperty().set(true);
+        checkBox.selectedProperty().set(false);
+        //checkBox.setStyle();
         checkBox.selectedProperty().addListener(new ChangeListener<Boolean>() {
             @Override
             public void changed(ObservableValue<? extends Boolean> observableValue, Boolean aBoolean, Boolean aBoolean2) {
                 gameController.getBoard().requestFocus();
             }
         });
-        //gameController.getSoundManager().muteProperty().bind(checkBox.selectedProperty());
+        gameController.getSoundManager().muteProperty().bind(checkBox.selectedProperty());
 
         Slider sliderMusicVolume = new Slider();
         sliderMusicVolume.setMin(0);
@@ -54,18 +53,18 @@ public class InfoBox extends VBox {
                 }
             }
         });
-        //gameController.getSoundManager().volumeProperty().bind(sliderMusicVolume.valueProperty());
+        gameController.getSoundManager().volumeProperty().bind(sliderMusicVolume.valueProperty());
 
         Slider sliderSoundVolume = new Slider();
         sliderSoundVolume.setMin(0);
         sliderSoundVolume.setMax(1);
         sliderSoundVolume.setValue(0.5);
         sliderSoundVolume.setFocusTraversable(false);
-        //gameController.getSoundManager().soundVolumeProperty().bind(sliderSoundVolume.valueProperty());
+        gameController.getSoundManager().soundVolumeProperty().bind(sliderSoundVolume.valueProperty());
         sliderSoundVolume.valueChangingProperty().addListener(new ChangeListener<Boolean>() {
             @Override
-            public void changed(ObservableValue<? extends Boolean> observableValue, Boolean aBoolean, Boolean aBoolean2) {
-                if (!aBoolean2) {
+            public void changed(ObservableValue<? extends Boolean> observableValue, Boolean oldValue, Boolean newValue) {
+                if (!newValue) {
                     gameController.getBoard().requestFocus();
                 }
             }
@@ -76,6 +75,7 @@ public class InfoBox extends VBox {
 
         Button btnStart = new Button("New Game");
         btnStart.setGraphic(new ImageView(new Image(getClass().getResourceAsStream("/res/rotate-left.png"))));
+        setMargin(btnStart, new Insets(0, 15, 15, 0));
         btnStart.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
@@ -85,6 +85,7 @@ public class InfoBox extends VBox {
 
         Button btnStop = new Button("Stop");
         btnStop.setGraphic(new ImageView(new Image(getClass().getResourceAsStream("/res/stop.png"))));
+        setMargin(btnStop, new Insets(0, 15, 15, 0));
         btnStop.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
@@ -97,6 +98,7 @@ public class InfoBox extends VBox {
         btnStart.setMaxWidth(Double.MAX_VALUE);
         btnStart.setAlignment(Pos.CENTER_LEFT);
         Button btnPause = new Button("Pause");
+        setMargin(btnPause, new Insets(0, 15, 15, 0));
         btnPause.graphicProperty().bind(new ObjectBinding<Node>() {
             {
                 super.bind(gameController.pausedProperty());

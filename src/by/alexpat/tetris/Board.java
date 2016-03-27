@@ -44,7 +44,7 @@ public class Board extends StackPane {
     /**
      * The number of blocks per column. By default this is 20.
      */
-    private static final byte BLOCKS_PER_COLUMN = 20;
+    private static final byte BLOCKS_PER_COLUMN = 19;
 
     /**
      * The number of maximal previews.

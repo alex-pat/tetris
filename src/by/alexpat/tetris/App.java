@@ -13,9 +13,9 @@ public class App extends Application {
     public void start(Stage primaryStage) throws Exception {
 
         primaryStage.setTitle("Tetris");
-
+        primaryStage.setResizable(false);
         Scene scene = new Scene(new Tetris());
-
+        scene.getStylesheets().add("/res/styles.css");
         primaryStage.setScene(scene);
         primaryStage.show();
     }
