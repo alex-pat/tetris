@@ -16,6 +16,7 @@ import javafx.scene.control.Slider;
 import javafx.scene.effect.Reflection;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 import java.util.concurrent.Callable;
@@ -26,19 +27,38 @@ public class InfoBox extends VBox {
         setPadding(new Insets(20, 20, 20, 20));
         setSpacing(10);
 
-        CheckBox checkBox = new CheckBox();
-        checkBox.getStyleClass().add("mute");
-        checkBox.setMinSize(64, 64);
-        checkBox.setMaxSize(64, 64);
-        checkBox.selectedProperty().set(false);
-        //checkBox.setStyle();
-        checkBox.selectedProperty().addListener(new ChangeListener<Boolean>() {
+        CheckBox muteCheckBox = new CheckBox();
+        muteCheckBox.getStyleClass().add("mute");
+        muteCheckBox.setMinSize(64, 64);
+        muteCheckBox.setMaxSize(64, 64);
+        muteCheckBox.selectedProperty().set(false);
+        muteCheckBox.selectedProperty().addListener(new ChangeListener<Boolean>() {
             @Override
             public void changed(ObservableValue<? extends Boolean> observableValue, Boolean aBoolean, Boolean aBoolean2) {
                 gameController.getBoard().requestFocus();
             }
         });
-        gameController.getSoundManager().muteProperty().bind(checkBox.selectedProperty());
+        gameController.getSoundManager().muteProperty().bind( muteCheckBox.selectedProperty() );
+
+        CheckBox botCheckBox = new CheckBox();
+        botCheckBox.getStyleClass().add("bot");
+        botCheckBox.setMinSize(64, 64);
+        botCheckBox.setMaxSize(64, 64);
+        botCheckBox.selectedProperty().set(false);
+        botCheckBox.selectedProperty().addListener(new ChangeListener<Boolean>() {
+            @Override
+            public void changed(ObservableValue<? extends Boolean> observableValue, Boolean oldValue, Boolean newValue) {
+                if (newValue) {
+                    gameController.getBoard().startBot();
+                } else {
+                    gameController.getBoard().stopBot();
+                }
+                gameController.getBoard().requestFocus();
+            }
+        });
+        HBox checkBoxes = new HBox();
+        checkBoxes.getChildren().add(muteCheckBox);
+        checkBoxes.getChildren().add(botCheckBox);
 
         Slider sliderMusicVolume = new Slider();
         sliderMusicVolume.setMin(0);
@@ -130,7 +150,7 @@ public class InfoBox extends VBox {
         Preview preview = new Preview(gameController);
 
 
-        getChildren().add(checkBox);
+        getChildren().add(checkBoxes);
         getChildren().add(sliderMusicVolume);
         getChildren().add(sliderSoundVolume);
 

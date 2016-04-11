@@ -26,6 +26,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class Board extends StackPane {
 
@@ -50,6 +52,11 @@ public class Board extends StackPane {
      * The number of maximal previews.
      */
     private static final byte MAX_PREVIEWS = 1;
+
+    /**
+     * The multiplier of transition time (difficulty level)
+     */
+    private static final double DURATION_MUL = 0.92;
 
     /**
      * The move down transition.
@@ -112,6 +119,11 @@ public class Board extends StackPane {
     private boolean isDropping = false;
 
     /**
+     * True, if bot should work
+     */
+    private boolean isBotWorking = false;
+
+    /**
      * The current tetramino, which is falling.
      */
     private Tetramino currentTetramino;
@@ -129,25 +141,12 @@ public class Board extends StackPane {
     public Board() {
         setFocusTraversable(true);
 
-
         setId("board");
         setMinWidth(35 * BLOCKS_PER_ROW);
         setMinHeight(35 * BLOCKS_PER_COLUMN);
 
         maxWidthProperty().bind(minWidthProperty());
         maxHeightProperty().bind(minHeightProperty());
-        //setStyle("-fx-border-color:red");
-        //        minHeightProperty().bind(new DoubleBinding() {
-        //            {
-        //                super.bind(widthProperty());
-        //            }
-        //
-        //            @Override
-        //            protected double computeValue() {
-        //                return getWidth() * BLOCKS_PER_COLUMN / BLOCKS_PER_ROW;
-        //            }
-        //        });
-        //        maxHeightProperty().bind(minHeightProperty());
 
         clipProperty().bind(new ObjectBinding<Node>() {
             {
@@ -350,6 +349,30 @@ public class Board extends StackPane {
     }
 
     /**
+     * Get current bot state.
+     */
+    boolean getBotState() {
+        return isBotWorking;
+    }
+
+    /**
+     * Starting the bot.
+     */
+    void startBot() {
+        isBotWorking = true;
+        ExecutorService exec = Executors.newSingleThreadExecutor();
+        exec.execute(new Bot(this));
+        exec.shutdown();
+    }
+
+    /**
+     * Setting flag to stop the bot.
+     */
+    void stopBot() {
+        isBotWorking = false;
+    }
+
+    /**
      * Merges the tetramino with the board.
      * For each tile, create a rectangle in the board.
      * Eventually removes the tetramino from the board and spawns a new one.
@@ -497,6 +520,8 @@ public class Board extends StackPane {
 
         ParallelTransition parallelTransition = new ParallelTransition();
 
+        moveDownTransition.setDuration(moveDownTransition.getDuration().multiply(DURATION_MUL));
+        //moveDownTransition.getDuration().
         for (int i = rowIndex; i >= 0; i--) {
             for (int j = 0; j < BLOCKS_PER_ROW; j++) {
                 if (i > 1) {
@@ -582,6 +607,8 @@ public class Board extends StackPane {
                 requestFocus();
             }
         });
+
+        moveDownTransition.setDuration(Duration.seconds(0.3));
         spawnTetramino();
     }
 
@@ -853,4 +880,9 @@ public class Board extends StackPane {
         void onRotate(HorizontalDirection horizontalDirection);
     }
 
+    public enum BotState {
+        PLAYING,
+        STOPPED,
+        EXITING
+    }
 }

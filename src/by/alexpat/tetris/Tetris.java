@@ -15,11 +15,11 @@ public class Tetris extends HBox {
 
     private boolean movingDown = false;
 
+    final GameController gameController = new GameController();
+
     public Tetris() {
 
         setId("tetris");
-
-        final GameController gameController = new GameController();
 
         StackPane stackPane = new StackPane();
 
@@ -36,11 +36,6 @@ public class Tetris extends HBox {
 
         HBox.setHgrow(infoBox, Priority.ALWAYS);
         getChildren().add(infoBox);
-
-        String image = getClass().getResource( "/res/background.png" ).toExternalForm();
-//        setStyle( "-fx-background-image: url('" + image + "');"
-//                + "-fx-background-position: top;"
-//                + "-fx-background-repeat: no-repeat;");
 
         setOnKeyPressed(new EventHandler<KeyEvent>() {
             @Override
@@ -101,6 +96,5 @@ public class Tetris extends HBox {
                 }
             }
         });
-
     }
 }

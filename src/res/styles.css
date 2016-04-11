@@ -32,6 +32,14 @@
     -fx-background-image: url('mute.png');
 }
 
-.check-box.mute *.box {
+.check-box.bot {
+    -fx-background-image: url('nobot.png');
+}
+
+.check-box.bot:selected {
+    -fx-background-image: url('bot.png');
+}
+
+.check-box *.box {
     -fx-opacity: 0;
 }

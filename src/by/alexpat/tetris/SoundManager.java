@@ -23,7 +23,6 @@ final class SoundManager implements Board.BoardListener {
 
     public SoundManager(GameController gameController) {
 
-
         URL resource = getClass().getResource("/res/theme.wav");
         Media media = new Media(resource.toString());
 
