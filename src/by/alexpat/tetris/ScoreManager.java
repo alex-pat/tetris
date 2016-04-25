@@ -28,6 +28,10 @@ public class ScoreManager implements Board.BoardListener {
     }
 
     @Override
+    public void onSpawned(char newTetramino) {
+    }
+
+    @Override
     public void onRowsEliminated(int rows) {
         switch (rows) {
             case 1:

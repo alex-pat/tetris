@@ -21,10 +21,7 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
 
-import java.util.EventListener;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -124,6 +121,11 @@ public class Board extends StackPane {
     private boolean isBotWorking = false;
 
     /**
+     * True, if bot should work
+     */
+    private boolean isReplaying = false;
+
+    /**
      * The current tetramino, which is falling.
      */
     private Tetramino currentTetramino;
@@ -138,7 +140,7 @@ public class Board extends StackPane {
     /**
      * Creates the board.
      */
-    public Board() {
+    public Board(GameController gameController) {
         setFocusTraversable(true);
 
         setId("board");
@@ -240,9 +242,9 @@ public class Board extends StackPane {
     }
 
     /**
-     * Spawns a new random tetramino.
+     * Spawns a new tetramino.
      */
-    private void spawnTetramino() {
+    private void spawnTetramino(char newTetramino) {
 
         // Fill the queue of waiting tetraminos, if it's empty.
         while (waitingTetraminos.size() <= MAX_PREVIEWS) {
@@ -250,7 +252,13 @@ public class Board extends StackPane {
         }
 
         // Remove the first from the queue and spawn it.
-        currentTetramino = waitingTetraminos.remove(0);
+        if (newTetramino == '?') {
+            currentTetramino = waitingTetraminos.remove(0);
+        } else {
+            currentTetramino = Tetramino.getPlanned(newTetramino, squareSize);
+        }
+
+        notifyOnSpawned(currentTetramino.getLetter());
 
         // Reset all transitions.
         rotateTransition.setNode(currentTetramino);
@@ -272,7 +280,6 @@ public class Board extends StackPane {
         currentTetramino.setTranslateX(x * getSquareSize());
 
         //translateTransition.setToX(currentTetramino.getTranslateX());
-
         // Start to move it.
         moveDown();
     }
@@ -280,14 +287,14 @@ public class Board extends StackPane {
     /**
      * Notification of the tetramino, that it can't move further down.
      */
-    private void tetraminoDropped() {
+    private void tetraminoDropped(char newTetramino) {
         if (y == 0) {
             // If the piece could not move and we are still in the initial y position, the game is over.
             currentTetramino = null;
             waitingTetraminos.clear();
             notifyGameOver();
         } else {
-            mergeTetraminoWithBoard();
+            mergeTetraminoWithBoard(newTetramino);
         }
     }
 
@@ -297,6 +304,15 @@ public class Board extends StackPane {
     private void notifyOnDropped() {
         for (BoardListener boardListener : boardListeners) {
             boardListener.onDropped();
+        }
+    }
+
+    /**
+     * Notifies the listener, that a piece has dropped.
+     */
+    private void notifyOnSpawned(char newTetramino) {
+        for (BoardListener boardListener : boardListeners) {
+            boardListener.onSpawned(newTetramino);
         }
     }
 
@@ -356,12 +372,27 @@ public class Board extends StackPane {
     }
 
     /**
+     * Get current replaying state.
+     */
+    boolean isReplay() {
+        return isReplaying;
+    }
+
+    /**
+     * Set replay state
+     * @param value new replay value
+     */
+    void setReplaying (boolean value) {
+        isReplaying = value;
+    }
+
+    /**
      * Starting the bot.
      */
-    void startBot() {
+    void startBot(Iterator<String> commands) {
         isBotWorking = true;
         ExecutorService exec = Executors.newSingleThreadExecutor();
-        exec.execute(new Bot(this));
+        exec.execute(new Bot(this, commands));
         exec.shutdown();
     }
 
@@ -372,12 +403,16 @@ public class Board extends StackPane {
         isBotWorking = false;
     }
 
+    char getCurrentTetraminoChar () {
+        return currentTetramino.getLetter();
+    }
+
     /**
      * Merges the tetramino with the board.
      * For each tile, create a rectangle in the board.
      * Eventually removes the tetramino from the board and spawns a new one.
      */
-    private void mergeTetraminoWithBoard() {
+    private void mergeTetraminoWithBoard(char newTetramino) {
         int[][] tetraminoMatrix = currentTetramino.getMatrix();
 
         for (int i = 0; i < tetraminoMatrix.length; i++) {
@@ -461,13 +496,9 @@ public class Board extends StackPane {
         sequentialTransition.setOnFinished(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                //sequentialTransition.getChildren().clear();
-                spawnTetramino();
+                spawnTetramino(newTetramino);
             }
         });
-        // Cached nodes leak memory
-        // https://javafx-jira.kenai.com/browse/RT-32733
-        //currentTetramino.setCache(false);
         getChildren().remove(currentTetramino);
         currentTetramino = null;
         registerPausableAnimation(sequentialTransition);
@@ -488,8 +519,6 @@ public class Board extends StackPane {
                 final Rectangle rectangle = matrix[i][j];
 
                 if (rectangle != null) {
-                    // Unbind the original y position, to allow the rectangle to move to its new one.
-                    //rectangle.translateYProperty().unbind();
                     final TranslateTransition translateTransition = new TranslateTransition(Duration.seconds(0.1), rectangle);
                     rectangle.getProperties().put("y", i - HIDDEN_ROWS + by);
 
@@ -498,8 +527,6 @@ public class Board extends StackPane {
                         @Override
                         public void handle(ActionEvent actionEvent) {
                             translateTransition.toYProperty().unbind();
-
-                            //rectangle.translateYProperty().bind(squareSize.multiply(i - HIDDEN_ROWS + by));
                         }
                     });
                     parallelTransition.getChildren().add(translateTransition);
@@ -521,7 +548,6 @@ public class Board extends StackPane {
         ParallelTransition parallelTransition = new ParallelTransition();
 
         moveDownTransition.setDuration(moveDownTransition.getDuration().multiply(DURATION_MUL));
-        //moveDownTransition.getDuration().
         for (int i = rowIndex; i >= 0; i--) {
             for (int j = 0; j < BLOCKS_PER_ROW; j++) {
                 if (i > 1) {
@@ -564,7 +590,6 @@ public class Board extends StackPane {
     /**
      * Calculates if the tetramino would intersect with the board,
      * by passing a matrix that the tetramino is going to have.
-     * <p/>
      * It intersects either, if it hits another tetramino or if it exceeds the left, right or bottom border.
      *
      * @param targetMatrix The matrix of the tetramino.
@@ -599,7 +624,7 @@ public class Board extends StackPane {
     /**
      * Starts the board by spawning a new tetramino.
      */
-    public void start() {
+    public void start(char newTetramino) {
         clear();
         Platform.runLater(new Runnable() {
             @Override
@@ -608,14 +633,14 @@ public class Board extends StackPane {
             }
         });
 
+        spawnTetramino(newTetramino);
         moveDownTransition.setDuration(Duration.seconds(0.3));
-        spawnTetramino();
     }
 
     /**
      * Drops the tetramino down to the next possible position.
      */
-    public void dropDown() {
+    public void dropDown(char newTetramino) {
         if (currentTetramino == null) {
             return;
         }
@@ -635,7 +660,7 @@ public class Board extends StackPane {
         dropDownTransition.setOnFinished(new EventHandler<ActionEvent>() {
             public void handle(ActionEvent actionEvent) {
                 isDropping = false;
-                tetraminoDropped();
+                tetraminoDropped(newTetramino);
             }
         });
         registerPausableAnimation(dropDownTransition);
@@ -751,7 +776,7 @@ public class Board extends StackPane {
                 moveDownTransition.toYProperty().bind(squareSize.multiply(y + 1 - Board.HIDDEN_ROWS));
                 moveTransition.playFromStart();
             } else {
-                tetraminoDropped();
+                tetraminoDropped('?');
             }
         }
     }
@@ -772,7 +797,7 @@ public class Board extends StackPane {
                 moveDownFastTransition.playFromStart();
             } else {
                 // Otherwise it has reached ground.
-                tetraminoDropped();
+                tetraminoDropped('?');
             }
         }
     }
@@ -806,7 +831,6 @@ public class Board extends StackPane {
 
     /**
      * Gets the waiting tetraminos, which are about to be spawned.
-     * <p/>
      * The first element will be spawned next.
      *
      * @return The list of queued tetraminos.
@@ -878,11 +902,12 @@ public class Board extends StackPane {
          * @param horizontalDirection The direction.
          */
         void onRotate(HorizontalDirection horizontalDirection);
-    }
 
-    public enum BotState {
-        PLAYING,
-        STOPPED,
-        EXITING
+        /**
+         * Called when new tetramino spawned
+         *
+         * @param char newTetramino The new tetramino letter
+         */
+        void onSpawned(char newTetramino);
     }
 }

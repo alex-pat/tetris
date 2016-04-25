@@ -15,12 +15,15 @@ public class GameController {
 
     private final SoundManager soundManager;
 
+    private final SaveManager saveManager;
+
     private final BooleanProperty paused = new SimpleBooleanProperty();
 
     public GameController() {
-        this.board = new Board();
+        this.board = new Board(this);
         this.soundManager = new SoundManager(this);
         this.scoreManager = new ScoreManager(this);
+        this.saveManager = new SaveManager(this);
 
         notificationOverlay = new NotificationOverlay(this);
         paused.addListener(new ChangeListener<Boolean>() {
@@ -39,9 +42,10 @@ public class GameController {
         return paused;
     }
 
-    public void start() {
+    public void start(char firstTetramino) {
         soundManager.playFromStart();
-        board.start();
+        board.start(firstTetramino);
+        saveManager.newGame();
         scoreManager.scoreProperty().set(0);
         paused.set(false);
     }
@@ -63,6 +67,10 @@ public class GameController {
 
     public SoundManager getSoundManager() {
         return soundManager;
+    }
+
+    public SaveManager getSaveManager() {
+        return saveManager;
     }
 
     public void play() {

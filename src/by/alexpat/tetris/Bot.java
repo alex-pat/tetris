@@ -2,6 +2,7 @@ package by.alexpat.tetris;
 
 import javafx.geometry.HorizontalDirection;
 
+import java.util.Iterator;
 import java.util.concurrent.TimeUnit;
 
 public class Bot implements Runnable {
@@ -10,33 +11,65 @@ public class Bot implements Runnable {
 
     private Board board;
 
-    public Bot(Board board) {
+    Iterator<String> commandsIter = null;
+
+    public Bot(Board board, Iterator<String> commandsIter) {
         this.board = board;
+        this.commandsIter = commandsIter;
     }
 
     @Override
     public void run() {
         try {
-            while (board.getBotState() == true) {
-                int randomStepCount = (int) (5.0 * Math.random());
-                HorizontalDirection direction =
-                        (Math.random() < 0.5)
-                                ? HorizontalDirection.LEFT
-                                : HorizontalDirection.RIGHT;
-                for (int i = 0; i < randomStepCount; i++) {
-                    board.move(direction);
+            if (board.isReplay() == true && commandsIter != null) {
+                while (board.getBotState() == true && commandsIter.hasNext()) {
+                    String command = commandsIter.next();
+                    System.out.println(command);
+                    switch (command) {
+                        case "KA":
+                            board.move(HorizontalDirection.LEFT);
+                            break;
+                        case "KD":
+                            board.move(HorizontalDirection.RIGHT);
+                            break;
+                        case "KR":
+                            board.rotate(HorizontalDirection.LEFT);
+                            break;
+                        case "KS":
+                            String newTetramino = commandsIter.next();
+                            board.dropDown(newTetramino.charAt(1));
+                            break;
+                        default:
+                            board.dropDown(command.charAt(1));
+                            if (commandsIter.hasNext())
+                                commandsIter.next();
+                    }
                     Thread.yield();
                     TimeUnit.MILLISECONDS.sleep(SLEEP_TIME);
                 }
-                if (Math.random() < 0.5)
+            }
+            else {
+                while (board.getBotState() == true) {
+                    int randomStepCount = (int) (5.0 * Math.random());
+                    HorizontalDirection direction =
+                            (Math.random() < 0.5)
+                                    ? HorizontalDirection.LEFT
+                                    : HorizontalDirection.RIGHT;
+                    for (int i = 0; i < randomStepCount; i++) {
+                        board.move(direction);
+                        Thread.yield();
+                        TimeUnit.MILLISECONDS.sleep(SLEEP_TIME);
+                    }
+
                     for (int i = 0; i < 3.0 * Math.random(); i++) {
                         board.rotate(HorizontalDirection.LEFT);
                         TimeUnit.MILLISECONDS.sleep(SLEEP_TIME);
                         Thread.yield();
                     }
-                board.dropDown();
-                TimeUnit.MILLISECONDS.sleep(1000);
-                Thread.yield();
+                    board.dropDown('?');
+                    TimeUnit.MILLISECONDS.sleep(1000);
+                    Thread.yield();
+                }
             }
         } catch (InterruptedException e) {
             System.err.println("Interrupted");

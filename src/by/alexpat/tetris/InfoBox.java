@@ -49,7 +49,7 @@ public class InfoBox extends VBox {
             @Override
             public void changed(ObservableValue<? extends Boolean> observableValue, Boolean oldValue, Boolean newValue) {
                 if (newValue) {
-                    gameController.getBoard().startBot();
+                    gameController.getBoard().startBot(null);
                 } else {
                     gameController.getBoard().stopBot();
                 }
@@ -99,7 +99,7 @@ public class InfoBox extends VBox {
         btnStart.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                gameController.start();
+                gameController.start('?');
             }
         });
 

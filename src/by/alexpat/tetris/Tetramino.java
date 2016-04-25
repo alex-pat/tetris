@@ -132,6 +132,62 @@ public class Tetramino extends Group implements Cloneable {
         return new Tetramino(tetraminoDefinition, squareSize);
     }
 
+    public static Tetramino getPlanned(char newTetramino, ReadOnlyDoubleProperty squareSize) {
+        TetraminoDefinition tetraminoDefinition;
+        switch (newTetramino) {
+            case 'I':
+                tetraminoDefinition = I;
+                break;
+            case 'J':
+                tetraminoDefinition = J;
+                break;
+            case 'L':
+                tetraminoDefinition = L;
+                break;
+            case 'O':
+                tetraminoDefinition = O;
+                break;
+            case 'S':
+                tetraminoDefinition = S;
+                break;
+            case 'T':
+                tetraminoDefinition = T;
+                break;
+            case 'Z':
+                tetraminoDefinition = Z;
+                break;
+            default:
+                System.err.println("Unknown tetramino: ");
+                tetraminoDefinition = I;
+        }
+        return new Tetramino(tetraminoDefinition, squareSize);
+    }
+
+    char getLetter() {
+        if (tetraminoDefinition.color.equals(Color.CYAN)) {
+            return 'I';
+        }
+        else if (tetraminoDefinition.color.equals(Color.BLUE)) {
+            return 'J';
+        }
+        else if (tetraminoDefinition.color.equals(Color.ORANGE)) {
+            return 'L';
+        }
+        else if (tetraminoDefinition.color.equals(Color.YELLOW)) {
+            return 'O';
+        }
+        else if (tetraminoDefinition.color.equals(Color.GREENYELLOW)) {
+            return 'S';
+        }
+        else if (tetraminoDefinition.color.equals(Color.PURPLE)) {
+            return 'T';
+        }
+        else if (tetraminoDefinition.color.equals(Color.ORANGERED)) {
+            return 'Z';
+        }
+        return 'I';
+    }
+
     @Override
     public Tetramino clone() {
         return new Tetramino(tetraminoDefinition, squareSize);

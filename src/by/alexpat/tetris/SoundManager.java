@@ -13,7 +13,7 @@ import java.net.URL;
 
 final class SoundManager implements Board.BoardListener {
 
-    private final MediaPlayer mediaPlayer1;
+    private final MediaPlayer mediaPlayer;
 
     private DoubleProperty volume = new SimpleDoubleProperty();
 
@@ -26,10 +26,10 @@ final class SoundManager implements Board.BoardListener {
         URL resource = getClass().getResource("/res/theme.wav");
         Media media = new Media(resource.toString());
 
-        mediaPlayer1 = new MediaPlayer(media);
-        mediaPlayer1.setCycleCount(MediaPlayer.INDEFINITE);
-        mediaPlayer1.volumeProperty().bind(volumeProperty());
-        mediaPlayer1.muteProperty().bind(muteProperty());
+        mediaPlayer = new MediaPlayer(media);
+        mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
+        mediaPlayer.volumeProperty().bind(volumeProperty());
+        mediaPlayer.muteProperty().bind(muteProperty());
         gameController.getBoard().addBoardListener(this);
 
         for (Sound sound : Sound.values()) {
@@ -50,20 +50,20 @@ final class SoundManager implements Board.BoardListener {
     }
 
     public void pause() {
-        mediaPlayer1.pause();
+        mediaPlayer.pause();
     }
 
     public void play() {
-        mediaPlayer1.play();
+        mediaPlayer.play();
     }
 
     public void stop() {
-        mediaPlayer1.stop();
+        mediaPlayer.stop();
     }
 
     public void playFromStart() {
-        mediaPlayer1.stop();
-        mediaPlayer1.play();
+        mediaPlayer.stop();
+        mediaPlayer.play();
     }
 
     public void onDropped() {
@@ -84,8 +84,13 @@ final class SoundManager implements Board.BoardListener {
     }
 
     @Override
+    public void onSpawned(char newTetramino) {
+
+    }
+
+    @Override
     public void onGameOver() {
-        mediaPlayer1.stop();
+        mediaPlayer.stop();
         if (!mute.get()) {
             Sound.GAME_OVER.getAudioClip().play();
         }

@@ -93,6 +93,11 @@ public class NotificationOverlay extends StackPane implements Board.BoardListene
     }
 
     @Override
+    public void onSpawned(char newTetramino) {
+
+    }
+
+    @Override
     public void onGameOver() {
         showGameOver();
         //setStyle("-fx-background-color: rgba(51, 51, 51, 0.6)");
