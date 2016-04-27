@@ -7,7 +7,7 @@ import java.util.concurrent.TimeUnit;
 
 public class Bot implements Runnable {
 
-    private static final int SLEEP_TIME = 700;
+    private static final int SLEEP_TIME = 70*4;
 
     private Board board;
 
@@ -24,7 +24,6 @@ public class Bot implements Runnable {
             if (board.isReplay() == true && commandsIter != null) {
                 while (board.getBotState() == true && commandsIter.hasNext()) {
                     String command = commandsIter.next();
-                    System.out.println(command);
                     switch (command) {
                         case "KA":
                             board.move(HorizontalDirection.LEFT);
@@ -35,20 +34,18 @@ public class Bot implements Runnable {
                         case "KR":
                             board.rotate(HorizontalDirection.LEFT);
                             break;
-                        case "KS":
-                            String newTetramino = commandsIter.next();
-                            board.dropDown(newTetramino.charAt(1));
-                            break;
                         default:
                             board.dropDown(command.charAt(1));
-                            if (commandsIter.hasNext())
-                                commandsIter.next();
+                            Thread.yield();
+                            TimeUnit.MILLISECONDS.sleep(SLEEP_TIME*4);
                     }
                     Thread.yield();
                     TimeUnit.MILLISECONDS.sleep(SLEEP_TIME);
                 }
             }
             else {
+                TimeUnit.MILLISECONDS.sleep(1000);
+                Thread.yield();
                 while (board.getBotState() == true) {
                     int randomStepCount = (int) (5.0 * Math.random());
                     HorizontalDirection direction =

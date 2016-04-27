@@ -45,7 +45,6 @@ public class GameController {
     public void start(char firstTetramino) {
         soundManager.playFromStart();
         board.start(firstTetramino);
-        saveManager.newGame();
         scoreManager.scoreProperty().set(0);
         paused.set(false);
     }
@@ -57,6 +56,7 @@ public class GameController {
     public void stop() {
         soundManager.stop();
         board.clear();
+        board.setBotState(false);
         scoreManager.scoreProperty().set(0);
         paused.set(false);
     }

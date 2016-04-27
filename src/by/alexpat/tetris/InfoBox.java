@@ -49,6 +49,7 @@ public class InfoBox extends VBox {
             @Override
             public void changed(ObservableValue<? extends Boolean> observableValue, Boolean oldValue, Boolean newValue) {
                 if (newValue) {
+                    gameController.start('?');
                     gameController.getBoard().startBot(null);
                 } else {
                     gameController.getBoard().stopBot();
@@ -171,7 +172,10 @@ public class InfoBox extends VBox {
         getChildren().add(btnPause);
         getChildren().add(btnStop);
 
-        Label lblInfo = new Label("Use arrow keys for movement\nand rotating and space for\ndropping the piece.");
+        Label lblInfo = new Label(
+                        "▲ ▼ ◀ ▶ SPACE for movement\n" +
+                        "Press R to see records \n" +
+                        "and see replay.");
 
         getChildren().add(lblInfo);
 

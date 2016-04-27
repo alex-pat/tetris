@@ -257,7 +257,6 @@ public class Board extends StackPane {
         } else {
             currentTetramino = Tetramino.getPlanned(newTetramino, squareSize);
         }
-
         notifyOnSpawned(currentTetramino.getLetter());
 
         // Reset all transitions.
@@ -372,6 +371,14 @@ public class Board extends StackPane {
     }
 
     /**
+     * Set new bot state (used where STOP button is pressed)
+     * @param newBotState The new state of the bot
+     */
+    void setBotState(boolean newBotState) {
+        isBotWorking = newBotState;
+    }
+
+    /**
      * Get current replaying state.
      */
     boolean isReplay() {
@@ -414,6 +421,8 @@ public class Board extends StackPane {
      */
     private void mergeTetraminoWithBoard(char newTetramino) {
         int[][] tetraminoMatrix = currentTetramino.getMatrix();
+
+        notifyOnDropped();
 
         for (int i = 0; i < tetraminoMatrix.length; i++) {
             for (int j = 0; j < tetraminoMatrix[i].length; j++) {
@@ -503,7 +512,6 @@ public class Board extends StackPane {
         currentTetramino = null;
         registerPausableAnimation(sequentialTransition);
         sequentialTransition.playFromStart();
-        notifyOnDropped();
     }
 
     /**

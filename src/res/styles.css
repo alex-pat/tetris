@@ -5,6 +5,7 @@
 
 .label, .check-box {
     -fx-text-fill: white;
+    -fx-font-weight: bold;
 }
 
 .label.score {

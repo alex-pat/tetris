@@ -5,8 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/by/alexpat/tetris/Board.java" afterPath="$PROJECT_DIR$/src/by/alexpat/tetris/Board.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/by/alexpat/tetris/Bot.java" afterPath="$PROJECT_DIR$/src/by/alexpat/tetris/Bot.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/by/alexpat/tetris/GameController.java" afterPath="$PROJECT_DIR$/src/by/alexpat/tetris/GameController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/by/alexpat/tetris/InfoBox.java" afterPath="$PROJECT_DIR$/src/by/alexpat/tetris/InfoBox.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/by/alexpat/tetris/SaveManager.java" afterPath="$PROJECT_DIR$/src/by/alexpat/tetris/SaveManager.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/res/styles.css" afterPath="$PROJECT_DIR$/src/res/styles.css" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -79,16 +84,20 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="234">
               <caret line="17" column="52" selection-start-line="17" selection-start-column="35" selection-end-line="17" selection-end-column="52" />
-              <folding />
+              <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="e#204#205#0" expanded="false" />
+                <element signature="e#232#233#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="styles.css" pinned="false" current-in-tab="false">
+      <file leaf-file-name="styles.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/res/styles.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="792">
-              <caret line="44" column="1" selection-start-line="44" selection-start-column="1" selection-end-line="44" selection-end-column="1" />
+            <state relative-caret-position="108">
+              <caret line="6" column="25" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -99,7 +108,11 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="324">
               <caret line="34" column="39" selection-start-line="34" selection-start-column="39" selection-end-line="34" selection-end-column="39" />
-              <folding />
+              <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="e#1901#1902#0" expanded="false" />
+                <element signature="e#2000#2001#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -107,9 +120,11 @@
       <file leaf-file-name="Tetris.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/by/alexpat/tetris/Tetris.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="156">
-              <caret line="55" column="0" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="882">
+              <caret line="58" column="32" selection-start-line="58" selection-start-column="32" selection-end-line="58" selection-end-column="32" />
+              <folding>
+                <element signature="imports" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -117,18 +132,18 @@
       <file leaf-file-name="InfoBox.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/by/alexpat/tetris/InfoBox.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2016">
-              <caret line="135" column="0" selection-start-line="135" selection-start-column="0" selection-end-line="135" selection-end-column="0" />
+            <state relative-caret-position="234">
+              <caret line="175" column="56" selection-start-line="175" selection-start-column="56" selection-end-line="175" selection-end-column="56" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Bot.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Bot.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/by/alexpat/tetris/Bot.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="174">
-              <caret line="44" column="32" selection-start-line="44" selection-start-column="32" selection-end-line="44" selection-end-column="32" />
+            <state relative-caret-position="162">
+              <caret line="9" column="46" selection-start-line="9" selection-start-column="46" selection-end-line="9" selection-end-column="46" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -139,14 +154,9 @@
       <file leaf-file-name="Board.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/by/alexpat/tetris/Board.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="545" column="48" selection-start-line="545" selection-start-column="48" selection-end-line="545" selection-end-column="48" />
-              <folding>
-                <element signature="e#12372#12373#0" expanded="true" />
-                <element signature="e#12423#12424#0" expanded="true" />
-                <element signature="e#16602#16603#0" expanded="true" />
-                <element signature="e#16662#16663#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="146">
+              <caret line="421" column="61" selection-start-line="421" selection-start-column="61" selection-end-line="421" selection-end-column="61" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -154,7 +164,7 @@
       <file leaf-file-name="Tetramino.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/by/alexpat/tetris/Tetramino.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="36">
+            <state relative-caret-position="-90">
               <caret line="135" column="48" selection-start-line="135" selection-start-column="48" selection-end-line="135" selection-end-column="48" />
               <folding />
             </state>
@@ -164,7 +174,7 @@
       <file leaf-file-name="SoundManager.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/by/alexpat/tetris/SoundManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
+            <state relative-caret-position="378">
               <caret line="76" column="26" selection-start-line="76" selection-start-column="26" selection-end-line="76" selection-end-column="26" />
               <folding />
             </state>
@@ -174,8 +184,8 @@
       <file leaf-file-name="GameController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/by/alexpat/tetris/GameController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="280">
-              <caret line="46" column="34" selection-start-line="46" selection-start-column="34" selection-end-line="46" selection-end-column="34" />
+            <state relative-caret-position="72">
+              <caret line="46" column="36" selection-start-line="46" selection-start-column="36" selection-end-line="46" selection-end-column="36" />
               <folding />
             </state>
           </provider>
@@ -184,8 +194,8 @@
       <file leaf-file-name="SaveManager.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/by/alexpat/tetris/SaveManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="102" column="0" selection-start-line="102" selection-start-column="0" selection-end-line="103" selection-end-column="40" />
+            <state relative-caret-position="162">
+              <caret line="145" column="0" selection-start-line="145" selection-start-column="0" selection-end-line="145" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -196,10 +206,19 @@
       <file leaf-file-name="GameSave.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/by/alexpat/tetris/GameSave.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
+            <state relative-caret-position="540">
               <caret line="40" column="25" selection-start-line="40" selection-start-column="25" selection-end-line="40" selection-end-column="25" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#312#313#0" expanded="false" />
+                <element signature="e#344#345#0" expanded="false" />
+                <element signature="e#378#379#0" expanded="false" />
+                <element signature="e#411#412#0" expanded="false" />
+                <element signature="e#445#446#0" expanded="false" />
+                <element signature="e#478#479#0" expanded="false" />
+                <element signature="e#1248#1249#0" expanded="false" />
+                <element signature="e#1282#1283#0" expanded="false" />
+                <element signature="e#1322#1323#0" expanded="false" />
+                <element signature="e#1367#1368#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -208,9 +227,15 @@
       <file leaf-file-name="ScoreManager.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/by/alexpat/tetris/ScoreManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-170">
+            <state relative-caret-position="432">
               <caret line="30" column="43" selection-start-line="30" selection-start-column="43" selection-end-line="30" selection-end-column="43" />
-              <folding />
+              <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="e#564#565#0" expanded="false" />
+                <element signature="e#592#593#0" expanded="false" />
+                <element signature="e#632#633#0" expanded="false" />
+                <element signature="e#688#689#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -218,9 +243,15 @@
       <file leaf-file-name="NotificationOverlay.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/by/alexpat/tetris/NotificationOverlay.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
+            <state relative-caret-position="1458">
               <caret line="96" column="0" selection-start-line="96" selection-start-column="0" selection-end-line="96" selection-end-column="0" />
-              <folding />
+              <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="e#1681#1682#0" expanded="false" />
+                <element signature="e#1740#1741#0" expanded="false" />
+                <element signature="e#2844#2845#0" expanded="false" />
+                <element signature="e#2903#2904#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -252,20 +283,20 @@
       <list>
         <option value="$PROJECT_DIR$/src/by/alexpat/tetris/Tetris/Tetris.java" />
         <option value="$PROJECT_DIR$/src/by/alexpat/tetris/Preview.java" />
-        <option value="$PROJECT_DIR$/src/res/styles.css" />
         <option value="$PROJECT_DIR$/src/by/alexpat/tetris/App.java" />
         <option value="$PROJECT_DIR$/src/by/alexpat/tetris/SavesBase.java" />
-        <option value="$PROJECT_DIR$/src/by/alexpat/tetris/GameController.java" />
-        <option value="$PROJECT_DIR$/src/by/alexpat/tetris/InfoBox.java" />
         <option value="$PROJECT_DIR$/src/by/alexpat/tetris/Tetris.java" />
         <option value="$PROJECT_DIR$/src/by/alexpat/tetris/GameSave.java" />
         <option value="$PROJECT_DIR$/src/by/alexpat/tetris/SoundManager.java" />
         <option value="$PROJECT_DIR$/src/by/alexpat/tetris/NotificationOverlay.java" />
         <option value="$PROJECT_DIR$/src/by/alexpat/tetris/ScoreManager.java" />
         <option value="$PROJECT_DIR$/src/by/alexpat/tetris/Tetramino.java" />
-        <option value="$PROJECT_DIR$/src/by/alexpat/tetris/Board.java" />
+        <option value="$PROJECT_DIR$/src/by/alexpat/tetris/GameController.java" />
+        <option value="$PROJECT_DIR$/src/by/alexpat/tetris/InfoBox.java" />
         <option value="$PROJECT_DIR$/src/by/alexpat/tetris/SaveManager.java" />
+        <option value="$PROJECT_DIR$/src/by/alexpat/tetris/Board.java" />
         <option value="$PROJECT_DIR$/src/by/alexpat/tetris/Bot.java" />
+        <option value="$PROJECT_DIR$/src/res/styles.css" />
       </list>
     </option>
   </component>
@@ -316,7 +347,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -373,8 +403,9 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -943,12 +974,14 @@
       <workItem from="1460359582934" duration="4942000" />
       <workItem from="1460717712897" duration="704000" />
       <workItem from="1461437489715" duration="34921000" />
-      <workItem from="1461535318212" duration="21349000" />
+      <workItem from="1461535318212" duration="23931000" />
+      <workItem from="1461660292919" duration="2881000" />
+      <workItem from="1461774843631" duration="8954000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="148482000" />
+    <option name="totallyTimeSpent" value="162899000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -977,7 +1010,6 @@
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20543806" sideWeight="0.6703755" order="1" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32930514" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -993,6 +1025,7 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -1008,7 +1041,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="18" />
+      <option name="time" value="19" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1021,7 +1054,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
           <caret line="30" column="57" selection-start-line="30" selection-start-column="57" selection-end-line="30" selection-end-column="57" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#1681#1682#0" expanded="false" />
+            <element signature="e#1740#1741#0" expanded="false" />
+            <element signature="e#2844#2845#0" expanded="false" />
+            <element signature="e#2903#2904#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1029,7 +1068,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#204#205#0" expanded="false" />
+            <element signature="e#232#233#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1037,7 +1080,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="12" column="34" selection-start-line="12" selection-start-column="33" selection-end-line="12" selection-end-column="34" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1053,7 +1098,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="28" column="85" selection-start-line="28" selection-start-column="85" selection-end-line="28" selection-end-column="85" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#1901#1902#0" expanded="false" />
+            <element signature="e#2000#2001#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1077,7 +1126,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="3" column="14" selection-start-line="3" selection-start-column="14" selection-end-line="3" selection-end-column="14" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#564#565#0" expanded="false" />
+            <element signature="e#592#593#0" expanded="false" />
+            <element signature="e#632#633#0" expanded="false" />
+            <element signature="e#688#689#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1085,12 +1140,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2295">
           <caret line="180" column="49" selection-start-line="180" selection-start-column="49" selection-end-line="180" selection-end-column="49" />
-          <folding>
-            <element signature="e#12372#12373#0" expanded="true" />
-            <element signature="e#12423#12424#0" expanded="true" />
-            <element signature="e#16602#16603#0" expanded="true" />
-            <element signature="e#16662#16663#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1098,7 +1148,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
           <caret line="30" column="57" selection-start-line="30" selection-start-column="57" selection-end-line="30" selection-end-column="57" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#1681#1682#0" expanded="false" />
+            <element signature="e#1740#1741#0" expanded="false" />
+            <element signature="e#2844#2845#0" expanded="false" />
+            <element signature="e#2903#2904#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1106,7 +1162,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="18" column="37" selection-start-line="18" selection-start-column="37" selection-end-line="18" selection-end-column="37" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#204#205#0" expanded="false" />
+            <element signature="e#232#233#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1114,7 +1174,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1130,7 +1192,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="28" column="85" selection-start-line="28" selection-start-column="85" selection-end-line="28" selection-end-column="85" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#1901#1902#0" expanded="false" />
+            <element signature="e#2000#2001#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1154,7 +1220,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="3" column="14" selection-start-line="3" selection-start-column="14" selection-end-line="3" selection-end-column="14" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#564#565#0" expanded="false" />
+            <element signature="e#592#593#0" expanded="false" />
+            <element signature="e#632#633#0" expanded="false" />
+            <element signature="e#688#689#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1162,12 +1234,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="180" column="49" selection-start-line="180" selection-start-column="49" selection-end-line="180" selection-end-column="49" />
-          <folding>
-            <element signature="e#12372#12373#0" expanded="true" />
-            <element signature="e#12423#12424#0" expanded="true" />
-            <element signature="e#16602#16603#0" expanded="true" />
-            <element signature="e#16662#16663#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1175,7 +1242,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="30" column="57" selection-start-line="30" selection-start-column="57" selection-end-line="30" selection-end-column="57" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#1681#1682#0" expanded="false" />
+            <element signature="e#1740#1741#0" expanded="false" />
+            <element signature="e#2844#2845#0" expanded="false" />
+            <element signature="e#2903#2904#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1443,22 +1516,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/res/styles.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="792">
-          <caret line="44" column="1" selection-start-line="44" selection-start-column="1" selection-end-line="44" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/alexpat/tetris/Tetris.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="55" column="0" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///usr/lib/jvm/java-8-openjdk/javafx-src.zip!/javafx/stage/Stage.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="156">
@@ -1473,7 +1530,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="234">
           <caret line="17" column="52" selection-start-line="17" selection-start-column="35" selection-end-line="17" selection-end-column="52" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#204#205#0" expanded="false" />
+            <element signature="e#232#233#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1481,7 +1542,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="156">
           <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1489,15 +1549,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="156">
           <caret line="174" column="0" selection-start-line="174" selection-start-column="0" selection-end-line="174" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/alexpat/tetris/InfoBox.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2016">
-          <caret line="135" column="0" selection-start-line="135" selection-start-column="0" selection-end-line="135" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1505,90 +1556,136 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="324">
           <caret line="34" column="39" selection-start-line="34" selection-start-column="39" selection-end-line="34" selection-end-column="39" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#1901#1902#0" expanded="false" />
+            <element signature="e#2000#2001#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/by/alexpat/tetris/NotificationOverlay.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
+        <state relative-caret-position="1458">
           <caret line="96" column="0" selection-start-line="96" selection-start-column="0" selection-end-line="96" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#1681#1682#0" expanded="false" />
+            <element signature="e#1740#1741#0" expanded="false" />
+            <element signature="e#2844#2845#0" expanded="false" />
+            <element signature="e#2903#2904#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/alexpat/tetris/GameSave.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="40" column="25" selection-start-line="40" selection-start-column="25" selection-end-line="40" selection-end-column="25" />
+          <folding>
+            <element signature="e#312#313#0" expanded="false" />
+            <element signature="e#344#345#0" expanded="false" />
+            <element signature="e#378#379#0" expanded="false" />
+            <element signature="e#411#412#0" expanded="false" />
+            <element signature="e#445#446#0" expanded="false" />
+            <element signature="e#478#479#0" expanded="false" />
+            <element signature="e#1248#1249#0" expanded="false" />
+            <element signature="e#1282#1283#0" expanded="false" />
+            <element signature="e#1322#1323#0" expanded="false" />
+            <element signature="e#1367#1368#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/alexpat/tetris/Tetris.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="882">
+          <caret line="58" column="32" selection-start-line="58" selection-start-column="32" selection-end-line="58" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/by/alexpat/tetris/ScoreManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-170">
+        <state relative-caret-position="432">
           <caret line="30" column="43" selection-start-line="30" selection-start-column="43" selection-end-line="30" selection-end-column="43" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#564#565#0" expanded="false" />
+            <element signature="e#592#593#0" expanded="false" />
+            <element signature="e#632#633#0" expanded="false" />
+            <element signature="e#688#689#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/alexpat/tetris/SoundManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="76" column="26" selection-start-line="76" selection-start-column="26" selection-end-line="76" selection-end-column="26" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/by/alexpat/tetris/GameController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="46" column="34" selection-start-line="46" selection-start-column="34" selection-end-line="46" selection-end-column="34" />
+        <state relative-caret-position="72">
+          <caret line="46" column="36" selection-start-line="46" selection-start-column="36" selection-end-line="46" selection-end-column="36" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/alexpat/tetris/GameSave.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="40" column="25" selection-start-line="40" selection-start-column="25" selection-end-line="40" selection-end-column="25" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/by/alexpat/tetris/SaveManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="102" column="0" selection-start-line="102" selection-start-column="0" selection-end-line="103" selection-end-column="40" />
+        <state relative-caret-position="162">
+          <caret line="145" column="0" selection-start-line="145" selection-start-column="0" selection-end-line="145" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/alexpat/tetris/Board.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="545" column="48" selection-start-line="545" selection-start-column="48" selection-end-line="545" selection-end-column="48" />
-          <folding>
-            <element signature="e#12372#12373#0" expanded="true" />
-            <element signature="e#12423#12424#0" expanded="true" />
-            <element signature="e#16602#16603#0" expanded="true" />
-            <element signature="e#16662#16663#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/by/alexpat/tetris/Tetramino.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
+        <state relative-caret-position="-90">
           <caret line="135" column="48" selection-start-line="135" selection-start-column="48" selection-end-line="135" selection-end-column="48" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/alexpat/tetris/SoundManager.java">
+    <entry file="file://$PROJECT_DIR$/src/by/alexpat/tetris/Board.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="76" column="26" selection-start-line="76" selection-start-column="26" selection-end-line="76" selection-end-column="26" />
+        <state relative-caret-position="146">
+          <caret line="421" column="61" selection-start-line="421" selection-start-column="61" selection-end-line="421" selection-end-column="61" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/by/alexpat/tetris/Bot.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="44" column="32" selection-start-line="44" selection-start-column="32" selection-end-line="44" selection-end-column="32" />
+        <state relative-caret-position="162">
+          <caret line="9" column="46" selection-start-line="9" selection-start-column="46" selection-end-line="9" selection-end-column="46" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/alexpat/tetris/InfoBox.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="175" column="56" selection-start-line="175" selection-start-column="56" selection-end-line="175" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/res/styles.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="6" column="25" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
+          <folding />
         </state>
       </provider>
     </entry>

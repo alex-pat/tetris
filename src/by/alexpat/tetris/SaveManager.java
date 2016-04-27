@@ -94,20 +94,19 @@ final class SaveManager implements Board.BoardListener {
     }
 
     public void newGame() {
-        if (currentGame == null)
+        if (gameController.getBoard().isReplay() == false)
             currentGame = new GameSave(savesCount++, 0);
     }
 
     @Override
     public void onDropped() {
-        if (gameController.getBoard().isReplay() == false && currentGame != null)
-            currentGame.addAction("KS");
     }
 
     @Override
     public void onSpawned(char newTetramino) {
-        if (currentGame == null)
+        if (currentGame == null) {
             newGame();
+        }
         if (gameController.getBoard().isReplay() == false)
             currentGame.addAction("T" + newTetramino);
     }
@@ -137,6 +136,7 @@ final class SaveManager implements Board.BoardListener {
     @Override
     public void onGameOver() {
         if (gameController.getBoard().isReplay() == false) {
+            gameController.getBoard().setBotState(false);
             saves.add(currentGame);
             currentGame = null;
             savesCount++;
