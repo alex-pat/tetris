@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "baa041b7_776aefef",
+        "filename": "src/by/alexpat/tetris/Board.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1007573
+      },
+      "writtenOn": "2016-05-07T20:23:24Z",
+      "side": 0,
+      "message": "Не должно быть пустых кирпичей",
+      "range": {
+        "startLine": 260,
+        "startChar": 0,
+        "endLine": 261,
+        "endChar": 54
+      },
+      "revId": "8410886c6ef97db59142de881c99ef06b31f3787",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    }
+  ]
+}
