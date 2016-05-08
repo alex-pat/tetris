@@ -35,7 +35,7 @@ final class SaveManager implements Board.BoardListener {
 
         saves = FXCollections.observableArrayList();
         try {
-            if(!base.exists()){
+            if (!base.exists()) {
                 base.createNewFile();
             }
 
@@ -94,8 +94,9 @@ final class SaveManager implements Board.BoardListener {
     }
 
     public void newGame() {
-        if (gameController.getBoard().isReplay() == false)
+        if (gameController.getBoard().isReplay() == false) {
             currentGame = new GameSave(savesCount++, 0);
+        }
     }
 
     @Override
@@ -107,8 +108,9 @@ final class SaveManager implements Board.BoardListener {
         if (currentGame == null) {
             newGame();
         }
-        if (gameController.getBoard().isReplay() == false)
+        if (gameController.getBoard().isReplay() == false) {
             currentGame.addAction("T" + newTetramino);
+        }
     }
 
     @Override
@@ -161,8 +163,9 @@ final class SaveManager implements Board.BoardListener {
 
     @Override
     public void onRotate(HorizontalDirection horizontalDirection) {
-        if (gameController.getBoard().isReplay() == false)
+        if (gameController.getBoard().isReplay() == false) {
             currentGame.addAction("KR");
+        }
     }
 
     public void showRecords () {
