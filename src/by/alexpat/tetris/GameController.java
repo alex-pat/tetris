@@ -24,8 +24,8 @@ public class GameController {
         this.soundManager = new SoundManager(this);
         this.scoreManager = new ScoreManager(this);
         this.saveManager = new SaveManager(this);
+        this.notificationOverlay = new NotificationOverlay(this);
 
-        notificationOverlay = new NotificationOverlay(this);
         paused.addListener(new ChangeListener<Boolean>() {
             @Override
             public void changed(ObservableValue<? extends Boolean> observableValue, Boolean oldValue, Boolean newValue) {

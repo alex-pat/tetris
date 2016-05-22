@@ -61,4 +61,7 @@ final public class GameSave {
         return gameActions.iterator();
     }
 
+    int getComparableScore() {
+        return - gameScore - gameLength / 2;
+    }
 }

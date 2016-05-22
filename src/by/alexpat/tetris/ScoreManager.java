@@ -8,10 +8,7 @@ public class ScoreManager implements Board.BoardListener {
 
     private final IntegerProperty score = new SimpleIntegerProperty();
 
-    private final GameController gameController;
-
     public ScoreManager(GameController gameController) {
-        this.gameController = gameController;
         gameController.getBoard().addBoardListener(this);
     }
 
@@ -43,7 +40,7 @@ public class ScoreManager implements Board.BoardListener {
             case 3:
                 addScore(300);
                 break;
-            case 4:
+            default:
                 addScore(1200);
                 break;
         }
