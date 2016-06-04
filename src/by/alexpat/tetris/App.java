@@ -12,10 +12,12 @@ public class App extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
 
-        primaryStage.setTitle("Tetris");
+        primaryStage.setTitle("TETЯIS");
         primaryStage.setResizable(false);
         Scene scene = new Scene(new Tetris());
         scene.getStylesheets().add("/res/styles.css");
+        RecordsScene.setPrimaryStage(primaryStage);
+        RecordsScene.setGameScene(scene);
         primaryStage.setScene(scene);
         primaryStage.show();
     }

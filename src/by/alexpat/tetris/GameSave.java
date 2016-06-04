@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Iterator;
 import java.util.LinkedList;
-import java.util.Queue;
 
 final public class GameSave {
 
@@ -26,7 +25,7 @@ final public class GameSave {
         return gameNumber;
     }
 
-    private Queue<String> gameActions;
+    private LinkedList<String> gameActions;
 
     public GameSave(int gameNumber, int gameScore) {
         this.gameNumber = gameNumber;
@@ -63,5 +62,9 @@ final public class GameSave {
 
     int getComparableScore() {
         return - gameScore - gameLength / 2;
+    }
+
+    String[] getActions() {
+        return gameActions.toArray(new String[gameActions.size()]);
     }
 }
