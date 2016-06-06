@@ -57,9 +57,23 @@ public class InfoBox extends VBox {
                 gameController.getBoard().requestFocus();
             }
         });
+
+        Button savesButton = new Button();
+        savesButton.getStyleClass().add("saves");
+        savesButton.setMinSize(64, 64);
+        savesButton.setMaxSize(64, 64);
+        savesButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                gameController.getSaveManager().showRecords();
+            }
+        });
+
         HBox checkBoxes = new HBox();
+        checkBoxes.setAlignment(Pos.CENTER);
         checkBoxes.getChildren().add(muteCheckBox);
         checkBoxes.getChildren().add(botCheckBox);
+        checkBoxes.getChildren().add(savesButton);
 
         Slider sliderMusicVolume = new Slider();
         sliderMusicVolume.setMin(0);
@@ -172,10 +186,7 @@ public class InfoBox extends VBox {
         getChildren().add(btnPause);
         getChildren().add(btnStop);
 
-        Label lblInfo = new Label(
-                        "▲ ▼ ◀ ▶ SPACE for movement\n" +
-                        "Press R to see records \n" +
-                        "and see replay.");
+        Label lblInfo = new Label("▲ ▼ ◀ ▶ SPACE for movement");
 
         getChildren().add(lblInfo);
 

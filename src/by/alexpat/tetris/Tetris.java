@@ -81,10 +81,6 @@ public class Tetris extends HBox {
                     }
                 }
 
-                if (keyEvent.getCode() == KeyCode.R) {
-                    gameController.getSaveManager().showRecords();
-                }
-
                 if (keyEvent.getCode() == KeyCode.SPACE && !gameController.pausedProperty().get()) {
                     gameController.getBoard().dropDown('?');
                     keyEvent.consume();

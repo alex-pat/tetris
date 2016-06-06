@@ -25,6 +25,10 @@
     -fx-font-size: 14px;
 }
 
+.button.saves {
+    -fx-background-image: url('saves.png');
+}
+
 .check-box.mute {
     -fx-background-image: url('unmute.png');
 }
